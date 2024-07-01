@@ -1,0 +1,12 @@
+@if (githubService.selectedUser$ | async; as user) {
+  <div class="container mt-4">
+    <div class="card">
+      <img [src]="user.avatar_url" class="card-img-top" alt="User avatar" style="width: 200px;">
+      <div class="card-body">
+        <h5 class="card-title">{{ user.login }}</h5>
+        <p class="card-text">Type: {{ user.type }}</p>
+        <a [href]="user.html_url" target="_blank" class="btn btn-primary">View Profile</a>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,16 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+  @for (user of githubService.users(); track user.id) {
+    <div class="col">
+      <div class="card h-100">
+        <img [src]="user.avatar_url" class="card-img-top" alt="User avatar" style="height: 200px; object-fit: cover;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ user.login }}</h5>
+          <p class="card-text">{{ user.type }}</p>
+          <a [routerLink]="['/detail', user.login]" class="btn btn-sm btn-primary mt-auto">Details</a>
+        </div>
+      </div>
+    </div>
+  } @empty {
+    <p class="text-center">No users for now</p>
+  }
+</div>
